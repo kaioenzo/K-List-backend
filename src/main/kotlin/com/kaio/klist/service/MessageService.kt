@@ -1,4 +1,4 @@
-package com.kaio.klist.Service
+package com.kaio.klist.service
 
 import com.kaio.klist.entity.Message
 import com.kaio.klist.repository.MessageRepository

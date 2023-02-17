@@ -1,6 +1,6 @@
 package com.kaio.klist.controller
 
-import com.kaio.klist.Service.UserService
+import com.kaio.klist.service.UserService
 import com.kaio.klist.dto.UserDTO
 import com.kaio.klist.dto.UserUpdateRequest
 import com.kaio.klist.dto.toDTO

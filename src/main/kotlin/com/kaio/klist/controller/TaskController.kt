@@ -1,6 +1,6 @@
 package com.kaio.klist.controller
 
-import com.kaio.klist.Service.TaskService
+import com.kaio.klist.service.TaskService
 import com.kaio.klist.dto.TaskDTO
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody

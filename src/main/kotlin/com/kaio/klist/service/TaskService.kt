@@ -1,4 +1,4 @@
-package com.kaio.klist.Service
+package com.kaio.klist.service
 
 import com.kaio.klist.dto.TaskDTO
 import com.kaio.klist.dto.toEntity

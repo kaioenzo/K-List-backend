@@ -1,6 +1,6 @@
 package com.kaio.klist.controller
 
-import com.kaio.klist.Service.MessageService
+import com.kaio.klist.service.MessageService
 import com.kaio.klist.entity.Message
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
