@@ -1,6 +1,7 @@
 package com.kaio.klist.entity
 
 import com.fasterxml.jackson.annotation.JsonBackReference
+import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
@@ -32,4 +33,8 @@ class Task(
 
     @Column(name = "date", nullable = false)
     var date: LocalDateTime? = null,
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "task")
+    var notificationTask: Notification? = null,
 )

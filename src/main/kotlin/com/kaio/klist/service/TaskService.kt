@@ -7,10 +7,11 @@ import com.kaio.klist.repository.TaskRepository
 import org.springframework.stereotype.Service
 
 @Service
-class TaskService(val db: TaskRepository, val userService: UserService) {
+class TaskService(val db: TaskRepository, val userService: UserService, val notificationService: NotificationService) {
     fun createTask(task: TaskDTO) {
         val user = userService.findUser(task.user!!)
-        db.save(task.toEntity(user))
+        val task = db.save(task.toEntity(user))
+        notificationService.createNotification(task)
     }
 
     fun getTasksFromUser(id: Long): List<TaskDTO?> {

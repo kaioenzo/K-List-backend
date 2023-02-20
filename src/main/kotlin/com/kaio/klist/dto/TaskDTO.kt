@@ -11,6 +11,7 @@ data class TaskDTO (
     var notification: Boolean?,
     var date: LocalDateTime?,
     var user: Long?,
+    var tokenNotification: String? = null,
     )
 
 fun TaskDTO.toEntity(user: User) = Task(
@@ -20,7 +21,7 @@ fun TaskDTO.toEntity(user: User) = Task(
     notification = notification,
     date = date,
     user = user,
-    isNotificated = false
+    isNotificated = false,
     )
 fun Task.toDTO() = TaskDTO(
     title = title,

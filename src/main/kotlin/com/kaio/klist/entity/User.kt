@@ -23,5 +23,8 @@ class User(
 
     @JsonManagedReference
     @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true, fetch = FetchType.LAZY)
-    var tasks: Set<Task>? = emptySet()
+    var tasks: Set<Task>? = emptySet(),
+
+    @Column(nullable = true)
+    var tokenNotification: String? = null,
 )
