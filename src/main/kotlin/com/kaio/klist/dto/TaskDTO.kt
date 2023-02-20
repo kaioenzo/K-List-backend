@@ -5,6 +5,7 @@ import com.kaio.klist.entity.User
 import java.time.LocalDateTime
 
 data class TaskDTO (
+    var id: Long?,
     var title: String?,
     var description: String?,
     var done: Boolean?,
@@ -15,6 +16,7 @@ data class TaskDTO (
     )
 
 fun TaskDTO.toEntity(user: User) = Task(
+    id = id,
     title = title,
     description = description,
     done = done,
@@ -30,4 +32,5 @@ fun Task.toDTO() = TaskDTO(
     date = date,
     notification = notification,
     user = user?.id,
+    id = id,
 )
