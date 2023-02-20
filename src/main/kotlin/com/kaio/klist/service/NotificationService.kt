@@ -15,11 +15,15 @@ class NotificationService(val db: NotificationRepository) {
     @Async
     @Scheduled(fixedDelay = 50000)
     fun sendNotification() {
+        var count = 0
+        var total = 0
+        val startedTime = System.currentTimeMillis()
         println(
             "start sending notification..."
         )
         db.findAll().forEach {
             if (!it.isSend && LocalDateTime.now().isAfter(it.task?.date!!)){
+                count++
                 try{
                     Thread.sleep(2000)
                     println(
@@ -31,9 +35,12 @@ class NotificationService(val db: NotificationRepository) {
                     println(ignored.message)
                 }
                 db.save(it)
+                total++
             }
         }
         println("finish sending notification...")
+        println("delivered notifications: $count of $total with sucess")
+        println("time of process: ${System.currentTimeMillis() - startedTime} ms")
     }
 
     fun createNotification(task: Task) {

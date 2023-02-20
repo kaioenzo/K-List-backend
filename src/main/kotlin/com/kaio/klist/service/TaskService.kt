@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service
 class TaskService(val db: TaskRepository, val userService: UserService, val notificationService: NotificationService) {
     fun createTask(task: TaskDTO) {
         val user = userService.findUser(task.user!!)
-        val task = db.save(task.toEntity(user))
-        notificationService.createNotification(task)
+        val taskEntity = db.save(task.toEntity(user))
+        notificationService.createNotification(taskEntity)
     }
 
     fun getTasksFromUser(id: Long): List<TaskDTO?> {
